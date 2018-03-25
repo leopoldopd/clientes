@@ -1,0 +1,25 @@
+<ion-view view-title="Login" name="login-view">
+    <ion-content class="padding">
+        <form name="form" novalidate>
+            <div class="list list-inset">
+                <label class="item item-input item-floating-label">
+                        <span class="input-label">E-mail</span>
+                        <input type="email" placeholder="E-mail" name="email" ui-number-mask required ng-required="true" ng-model="login.email">
+                </label>
+                <label class="item item-input item-floating-label">
+                        <span class="input-label">Senha</span>
+                        <input type="password"name="senha" placeholder="Senha" required ng-required="true" ng-model="login.senha">
+                </label>
+            </div>
+            <div>
+                <button class="button button-block button-calm" ng-disabled="form.email.$invalid || form.senha.$invalid" ng-click="entrar()">Entrar</button>
+                <button class="button button-block button-calm" ng-click="cadastrar()">Não possuo cadastro</button>
+            </div>
+            <div class="mensagens-erro">
+            <span  ng-show="form.email.$error.required && form.email.$dirty">Digite o endereço de e-mail</span>
+            <span  ng-show="form.email.$error.email && form.email.$dirty">Endereço de e-mail inválido</span>
+            <span  ng-show="form.senha.$error.required && form.senha.$dirty">Digite a senha</span>
+            </p>
+        </form>
+    </ion-content>
+</ion-view>

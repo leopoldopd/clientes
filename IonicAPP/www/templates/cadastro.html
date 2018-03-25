@@ -1,0 +1,67 @@
+<ion-view view-title="Cadastro do Cliente" name="cadastro-view">
+    <ion-content class="padding">
+        <form name="form">
+            <div class="list list-inset">
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nome</span>
+                <input type="text" name="nome" required ng-model="cliente.nome">
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">CPF</span>
+                        <input type="number" ng-maxlength="11" ng-min   length="11" name="cpf" required  ng-model="cliente.cpfCliente">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                                <span class="input-label">E-mail</span>
+                <input type="email"  name="email" required ng-model="cliente.email" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Endereço</span>
+                        <input type="text" name="endereco" required ng-model="cliente.endereco" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Estado</span>
+                        <input type="text" name="estado" required ng-model="cliente.estado" >
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Municipio</span>
+                        <input type="text" name="municipio" required ng-model="cliente.municipio">
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Senha</span>
+                        <input type="password" name="senha" required  ng-model="cliente.senha">
+                </label>
+                <label class="item item-input item-stacked-label">
+                        <span class="input-label">Confirme a senha</span>
+                        <input type="password" name="confirmacaoSenha" required  ng-model="cliente.confirmacaoSenha" >
+                </label>
+                <div class="mensagens-erro">
+                        <span ng-show="form.nome.$error.required && form.nome.$dirty">Digite o nome</span>
+                        <span ng-show="form.cpf.$error.required && form.cpf.$dirty">Digite o CPF</span>
+                        <span ng-show="form.cpf.$error.maxlength || form.cpf.$error.maxlength && form.cpf.$dirty">CPF inválido, deve conter 11 algarismos numéricos.</span>
+                        <span ng-show="form.email.$error.required && form.email.$dirty">Digite o endereço de e-mail</span>
+                        <span ng-show="form.endereco.$error.required && form.endereco.$dirty">Digite o Endereço</span>
+                        <span ng-show="form.estado.$error.required && form.estado.$dirty">Digite o Estado</span>
+                        <span ng-show="form.municipio.$error.required && form.municipio.$dirty">Digite o Municipio</span>
+                        <span ng-show="form.email.$error.email && form.email.$dirty">Endereço de e-mail inválido</span>
+                        <span ng-show="form.senha.$error.required && form.senha.$dirty">Digite a senha</span>
+                        <span ng-show="form.confirmacaoSenha.$error.required && form.confirmacaoSenha.$dirty">Confirme a senha</span>
+                        <span ng-show="cliente.senha != cliente.confirmacaoSenha  && form.confirmacaoSenha.$dirty">Senhas não conferem</span>
+                </div>
+                <div>
+                    <button class="button button-block button-calm" ng-disabled="form.nome.$invalid ||
+                                                                                form.email.$invalid ||
+                                                                                form.cpf.$invalid ||
+                                                                                form.endereco.$invalid ||
+                                                                                form.estado.$invalid ||
+                                                                                form.municipio.$invalid ||
+                                                                                form.senha.$invalid ||
+                                                                                (cliente.senha != cliente.confirmacaoSenha) ||
+                                                                                form.confirmacaoSenha.$invalid"
+                                                                
+                    ng-click="realizarCadastro()">Cadastrar</button>
+                </div>
+
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
